@@ -1,0 +1,17 @@
+// Import Variables File
+@use "../helpers/variables" as *;
+
+// Import Mixins File
+@use "../helpers/mixins" as *;
+
+.main-heading {
+  span {
+    font-size: 13px;
+    font-weight: 700;
+    color: $space-cadet;
+  }
+  h2 {
+    margin: 5px 0 10px;
+    color: $ming;
+  }
+}

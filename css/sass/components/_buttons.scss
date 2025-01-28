@@ -1,0 +1,33 @@
+// Import Variables File
+@use "../helpers/variables" as *;
+
+// Import Mixins File
+@use "../helpers/mixins" as *;
+
+.button {
+  position: relative;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  background-color: #00adb3;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 0;
+  &::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: $rich-black-fogra-29;
+    z-index: -1;
+    @include prefixes(transition, 0.7s, webkit moz o ms);
+  }
+  &:hover::after{
+    width: 100%;
+  }
+}

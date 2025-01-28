@@ -1,0 +1,52 @@
+// Mixin Name => breakpoints
+// Mixin Job => Writing Formats In Different Screen Sizes
+// Sizes From Smaller To Larger => xs < sm < md < lg < xl 
+
+@mixin breakpoints($size) {
+  @if $size == "xs" {
+
+    @media (max-width: 575px) {
+      @content;
+    }
+
+  } @else if $size == "sm" {
+
+    @media (max-width: 767px) {
+      @content;
+    }
+
+  } @else if $size == "md" {
+
+    @media (max-width: 991px) {
+      @content;
+    }
+
+  } @else if $size == "lg" {
+
+    @media (max-width: 1029px) {
+      @content;
+    }
+
+  } @else if $size == "xl" {
+
+    @media (max-width: 1400px) {
+      @content;
+    }
+
+  }  
+}
+
+
+// Mixin Name => addprefixes
+// Mixin Job => Add Prefixes To Properties
+// $Property => Name Of Property
+// $Value => Value Of Property
+// $Prefixes => All Prefixes You Want To Need
+
+@mixin prefixes($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{"-" + $prefix + "-" + $property}: $value; 
+  }
+
+  #{$property}: $value;
+}

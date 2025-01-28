@@ -1,0 +1,466 @@
+// Import Variables File
+@use "../helpers/variables" as *;
+
+// Import Mixins File
+@use "../helpers/mixins" as *;
+
+/* Start Landing Section */
+.landing-section {
+  background-color: $ming;
+  height: 683px;
+  position: relative;
+  z-index: 0;
+  .background-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+  .contanier {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    align-items: center;
+    gap: 25px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    @include breakpoints("sm") {
+      grid-template-columns: repeat(1,100%);
+      text-align: center;
+    }
+    .welcome-part {
+      h5,h1{
+        margin: 0;
+        color: $white;
+      }
+      h5 {
+        font-size: 14px;
+        position: relative;
+        padding-left: 50px;
+        &::before {
+          content: "";
+          position: absolute;
+          height: 2px;
+          width: 40px;
+          background-color: $white;
+          top: 50%;
+          transform: translate(-47px, -50%);
+        }
+      }
+      h1 {
+        font-size: 50px;
+      }
+      form {
+        background-color: $white;
+        padding: 10px;
+        margin: 15px 0 0;
+        border-radius: $border-radius;
+        width: fit-content;
+        @include breakpoints("sm") {
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        p {
+          margin: 0;
+          padding: 5px 0;
+          font-size: 14px;
+          color: hsl(226, 45%, 24%);
+          border-bottom: 1px solid $middle-blue-green_40;
+        }
+        .search {
+          display: flex;
+          align-items: center;
+          gap: 40px;
+          padding: 10px 0;
+          @include breakpoints("md") {
+            flex-direction: column;
+            gap: 10px;
+          }
+          @include breakpoints("sm") {
+            flex-direction: row;
+            gap: 40px;
+          }
+          @include breakpoints("xs") {
+            flex-direction: column;
+            gap: 10px;
+          }
+          .search-box {
+            display: flex;
+            align-items: center;
+            input {
+              border: none;
+              border-bottom: 1px solid $middle-blue-green_40;
+              padding-bottom: 4px;
+            }
+            i{
+              font-size: 13px;
+              color: $verdigris;
+            }
+            button {
+              i{
+                color: $white;
+                font-size: 12px;
+                padding-right: 3px;
+              } 
+            }
+          }
+        }
+      }
+    }
+    .landing-sec-pic {
+      @include breakpoints("sm") {
+        display: none;
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+/* End Landing Section */
+
+/* Start Services */
+.services {
+  position: relative;
+  top: -40px;
+  .contanier {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: white;
+    @include prefixes(box-shadow, 0 0 10px $gray-web, webkit moz o ms);
+    border-radius: $border-radius;
+    .services-box {
+      width: 250px;
+      padding: 25px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      img {
+        width: 50px;
+      }
+      h2 {
+        margin: 10px 0;
+        font-size: 17px;
+        color: $ming;
+      }
+      p {
+        margin-top: 0;
+        font-size: 13px;
+        line-height: 1.6;
+        color: $rich-black-fogra-29;
+      }
+      i {
+        font-size: 14px;
+        color: $verdigris;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: $white;
+        @include prefixes(box-shadow, 0 0 10px $gainsboro, webkit moz o ms);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        @include prefixes(transition, $transition-duration, webkit moz o ms);
+        &:hover {
+          background-color: $middle-blue-green_40;
+          @include prefixes(transform, rotate(-45deg), webkit moz o ms);
+        }
+      }
+    }
+  }
+}
+/* End Services */
+
+/* Start About Us */
+.about-us {
+  padding: 50px 0 0;
+  background-color: $white;
+  overflow: hidden;
+  .contanier {
+    display: grid;
+    grid-template-columns: repeat(2, calc(50% - 15px));
+    align-items: center;
+    gap: 30px;
+    @include breakpoints("sm") {
+      grid-template-columns: repeat(1,100%);
+    }
+    .about-details {
+      padding: 40px 0;
+      @include breakpoints("sm") {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      p {
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 20px 0;
+        &:first-of-type {
+          color: $space-cadet;
+        }
+        &:last-of-type {
+          color: $ming;
+        }
+      }
+      .about-tabs {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        li {
+          background-color: $gainsboro;
+          padding: 5px 14px;
+          @include prefixes(border-radius, $border-radius, webkit moz o ms);
+          color: $ming;
+          font-size: 14px;
+          font-weight: bold;
+          cursor: pointer;
+          @include prefixes(transition, $transition-duration, webkit moz o ms);
+          &.active {
+            background-color: $verdigris;
+            color: $white;
+          }
+          &:hover {
+            background-color: $verdigris;
+            color: $white;
+          }
+        }
+      }
+      .about-list {
+        display: grid;
+        grid-template-columns: repeat(2, calc(50% - 10px));
+        align-items: center;
+        gap: 20px;
+        @include breakpoints("lg") {
+          grid-template-columns: repeat(1, 100%);
+        }
+        @include breakpoints("sm") {
+          grid-template-columns: repeat(2, calc(50% - 10px));
+        }
+        @include breakpoints("xs") {
+          grid-template-columns: repeat(1, 100%);
+        }
+
+        li {
+          position: relative;
+          font-size: 13px;
+          font-weight: 600;
+          color: $space-cadet;
+          padding-left: 20px;
+          white-space: nowrap;
+          width: fit-content;
+          &::before {
+            font-family: "Font Awesome 6 Free";
+            content: "\f00c";
+            position: absolute;
+            font-weight: 900;
+            width: 11px;
+            height: 11px;
+            border: 1px solid $verdigris;
+            border-radius: 50%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            color: $verdigris;
+            font-size: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+    .about-pic {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+/* End About Us */
+
+/* Start Doctors List */
+.doctors {
+  padding: 40px 0;
+  background-color: $alice-blue;
+  .contanier {
+    display: grid;
+    grid-template-areas: "one one one one one one two two two three three three"
+    "four four four five five five six six six seven seven seven";
+    gap: 20px;
+    @include breakpoints("md") {
+      grid-template-areas: "one one one one one one one one one one one one"
+      "two two two two three three three three four four four four"
+      "five five five five six six six six seven seven seven seven";
+    }
+    @include breakpoints("sm") {
+      grid-template-areas: "one one one one one one one one one one one one"
+      "two two two two two two three three three three three three"
+      "four four four four four four five five five five five five"
+      "six six six six six six seven seven seven seven seven seven";
+      text-align: center;
+    }
+    @include breakpoints("xs") {
+      display: flex;
+      flex-direction: column;
+    }
+    .one {
+      grid-area: one;
+    }
+    .two {
+      grid-area: two;
+    }
+    .three {
+      grid-area: three;
+    }
+    .four {
+      grid-area: four;
+    }
+    .five {
+      grid-area: five;
+    }
+    .six {
+      grid-area: six;
+    }
+    .seven {
+      grid-area: seven;
+    }
+    .doctors-list {
+      border: 1px solid $middle-blue-green_40;
+      border-radius: $border-radius;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: $transition-duration;
+      &:hover {
+        border-color: $verdigris;
+      }
+      
+      img {
+        width: 40px;
+      }
+      span {
+        &:first-of-type {
+          color: $ming;
+          font-size: 14px;
+          font-weight: 700;
+          display: block;
+        }
+        &:last-of-type {
+          color: $verdigris;
+          font-size: 12px;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+/* End Doctors List */
+
+/* Start Blog */
+.blog {
+  position: relative;
+  padding: 0 0 80px;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    background-color: $alice-blue;
+    z-index: -1;
+  }
+  .contanier {
+    .main-heading {
+      text-align: center;
+      padding: 30px 0;
+    }
+    .blog-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      .box {
+        background-color: $white;
+        border: 1px solid $alice-blue;
+        border-radius: $border-radius;
+        padding: 25px;
+        overflow: hidden;
+        position: relative;
+        z-index: 0;
+        .background {
+          position: absolute;
+          top: 0;
+          left: -5px;
+          width: 104%;
+          height: 0;
+          overflow: hidden;
+          z-index: -1;
+          transition: 1s;
+          img {
+            width: 100%;
+            height: 325px;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: #116069cc; 
+          }
+        }
+        .person {
+          display: flex;  
+          align-items: center;
+          gap: 30px;
+          .person-box {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            i,span{
+              font-size: 13px;
+              color: $ming;
+            }
+            span {
+              font-weight: 600;
+            }
+          }
+        }
+        h4 {
+          line-height: 1.5;
+          color: $ming;
+        }
+        .date {
+          font-size: 13px;
+          font-weight: 700;
+          color: $gray-web;
+        }
+        p {
+          font-size: 14px;
+          line-height: 1.6;
+          color: $black;
+        }
+        a {
+          font-size: 14px;
+          color: $verdigris;
+        }
+        &:hover > .background{
+          height: 100%;
+        }
+        &:hover .white-hover {
+          color: $white !important;
+          transition: 1s;
+        }
+      }
+    }
+  }
+}
+/* End Blog */

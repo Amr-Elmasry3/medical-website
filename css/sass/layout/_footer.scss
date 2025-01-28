@@ -1,0 +1,153 @@
+// Import Variables File
+@use "../helpers/variables" as *;
+
+// Import Mixins File
+@use "../helpers/mixins" as *;
+
+/* Start Footer */
+.footer {
+  padding: 60px 0 20px;
+  background-color: $ming;
+  position: relative;
+  z-index: 0;
+  .footer-background {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    img {
+      width: 100%;
+    }
+  }
+  .contanier {
+    .first-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      background-color: hsl(186deg 92.31% 34.51% / 37%);
+      padding: 15px;
+      .logo {
+        img {
+          width: 100px;
+        }
+      }
+      .flex {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        i {
+          font-size: 22px;
+          color: $white;
+        }
+        .info {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          .title {
+            color: white;
+            font-size: 13px;
+            span {
+              cursor: pointer;
+              transition: $transition-duration;
+              &:hover {
+                color: $verdigris;
+              }
+            }
+          }
+        }
+      }
+    }
+    .second-box {
+      padding: 30px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 10px;
+      div {
+        .heading {
+          color: $white;
+          font-size: 14px;
+          font-weight: 700;
+        }
+        p {
+          margin: 10px 0;
+          font-size: 13px;
+          line-height: 1.4;
+          color: $white;
+        }
+      }
+      ul {
+        margin: 10px 0 0;
+        li {
+          padding-bottom: 5px;
+          a {
+            font-size: 13px;
+            color: $white;
+            transition: $transition-duration;
+            &:hover {
+              color: $verdigris;
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+      .subscribe-box {
+        input {
+          display: block;
+          margin: 10px 0;
+          background-color: transparent;
+          border: 1px solid #0d7580;
+          color: $white;
+          padding: 7px;
+        }
+        button {
+          width: 185px;
+          margin: 5px 0 20px;
+        }
+      }
+    }
+    .copyright {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #0d7580;
+      padding: 15px 0 0;
+      @include breakpoints("xs") {
+        flex-direction: column;
+        gap: 10px;
+      }
+      p {
+        margin: 0;
+        color: $white;
+        font-size: 14px;
+      }
+      .social-links {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        a {
+          width: 24px;
+          height: 24px;
+          background-color: $verdigris;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: $transition-duration;
+          &:hover {
+            background-color: $black;
+          }
+          i {
+            font-size: 14px;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+/* End Footer */
